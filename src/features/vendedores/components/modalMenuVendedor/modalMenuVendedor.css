@@ -9,11 +9,20 @@
     border-radius: 0.5rem;
 }
 
-.btn-menu-modal {
+.btn-menu-modal-editar {
     background-color: transparent;
 }
 
-.btn-menu-modal > img {
+.btn-menu-modal-editar > img {
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.btn-menu-modal-deletar {
+    background-color: transparent;
+}
+
+.btn-menu-modal-deletar > img {
+    width: 1.5rem;
+    height: 1.5rem;
 }

@@ -2,12 +2,19 @@ import './vendedorComponent.css';
 import MenuTresPontos from '../../../../assets/menu-tres-pontos.png';
 import ModalMenuVendedor from '../modalMenuVendedor/modalMenuVendedor';
 import { useState } from 'react';
+import ModalAtivacaoVendedor from '../modalAtivacaoVendedor/modalAtivacaoVendedor';
 
-export default function VendedorComponent() {
+interface VendedorComponentProps {
+    ativacao: () => void;
+}
+
+export default function VendedorComponent({ativacao}: VendedorComponentProps) {
+
     const [modalMenu, setModalMenu] = useState<boolean>(false);
     const [inativo, setInativo] = useState<boolean>(false);
 
     function ativacaoVendedor() {
+        ativacao();
         setInativo(!inativo);
     }
 

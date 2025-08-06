@@ -15,8 +15,8 @@ export default function ModalMenuVendedor() {
 
     return (
         <div className='modal-menu-vendedor'>
-            <button className='btn-menu-modal' onClick={() => deletarVendedor()}><img src={DeletarVendedor} alt="Imagem deletar" /></button>
-            <button className='btn-menu-modal' onClick={() => editarVendedor()} ><img src={EditarVendedor} alt="Imagem editar" /></button>
+            <button className='btn-menu-modal-deletar' onClick={() => deletarVendedor()}><img src={DeletarVendedor} alt="Imagem deletar" /></button>
+            <button className='btn-menu-modal-editar' onClick={() => editarVendedor()} ><img src={EditarVendedor} alt="Imagem editar" /></button>
         </div>
     )
 }
