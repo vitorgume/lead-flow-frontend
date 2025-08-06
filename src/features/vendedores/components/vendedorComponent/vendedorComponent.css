@@ -1,0 +1,71 @@
+.vendedor-component {
+    display: flex;
+    flex-direction: column;
+    background-color: #DAFFDE;
+    width: 20rem;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+}
+
+.vendedor-component > h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+
+.vendedor-component-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-inativar {
+    color: white;
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-inativar:hover {
+    cursor: pointer;
+    background-color: #f96449;
+}
+
+.btn-inativar:active {
+    cursor: pointer;
+    background-color: #f97c66;
+}
+
+.btn-menu {
+    align-self: self-end;
+    margin: 0.4rem;
+    width: 0.7rem;
+    height: 1rem;
+    background-color: transparent;
+}
+
+.btn-menu > img {
+    width: 0.4rem;
+    height: 1.3rem;
+}
+
+.btn-menu:hover {
+    cursor: pointer;
+}
+
+.vendedor-container {
+    display: flex;
+    flex-direction: row;
+}

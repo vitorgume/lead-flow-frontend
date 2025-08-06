@@ -1,0 +1,33 @@
+.menu-vendedor-page {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    height: 100vh;
+    padding: 3rem;
+}
+
+.menu-vendedor-page > h2 {
+    font-weight: 400;
+}
+
+.btn-novo {
+    background-color: #4DAB54;
+    color: white;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    width: 7rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vendedor-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}

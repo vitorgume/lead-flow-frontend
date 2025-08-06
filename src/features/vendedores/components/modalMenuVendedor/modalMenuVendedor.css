@@ -1,0 +1,19 @@
+.modal-menu-vendedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+    background-color: #DAFFDE;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.btn-menu-modal {
+    background-color: transparent;
+}
+
+.btn-menu-modal > img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
