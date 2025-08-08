@@ -1,0 +1,29 @@
+.btn-padrao {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.btn-padrao:hover {
+    cursor: pointer;
+}
+
+.btn-chamativo {
+    background-color: #4DAB54;
+    color: white;
+}
+
+.btn-chamativo:hover {
+    background-color: #86d08c;
+}
+
+.btn-nao-chamativo {
+    border: 1px solid #4DAB54;
+    background-color: white;
+}
+
+.btn-nao-chamativo:hover {
+    background-color: #ccf0cf;
+}

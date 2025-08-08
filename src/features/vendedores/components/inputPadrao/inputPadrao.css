@@ -1,0 +1,12 @@
+.input-padrao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-padrao > input {
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    border: solid 2px #4DAB54;
+}

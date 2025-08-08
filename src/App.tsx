@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import './App.css'
-import MenuVendedor from './features/vendedores/menuVendedor/menuVendedor';
+import MenuVendedor from './features/vendedores/pages/menuVendedor/menuVendedor';
 
 function App() {
   

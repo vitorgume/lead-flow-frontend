@@ -5,31 +5,40 @@ import { useState } from 'react';
 import ModalAtivacaoVendedor from '../modalAtivacaoVendedor/modalAtivacaoVendedor';
 
 interface VendedorComponentProps {
-    ativacao: () => void;
+    nome: string;
+    inativo: boolean;
+    onClickAtivar: (delecao: boolean) => void;
+    onClickAtivarForms: (edicao: boolean) => void;
 }
 
-export default function VendedorComponent({ativacao}: VendedorComponentProps) {
+export default function VendedorComponent({ nome, inativo, onClickAtivar, onClickAtivarForms }: VendedorComponentProps) {
 
-    const [modalMenu, setModalMenu] = useState<boolean>(false);
-    const [inativo, setInativo] = useState<boolean>(false);
-
-    function ativacaoVendedor() {
-        ativacao();
-        setInativo(!inativo);
-    }
+    const [modalMenu, setModalMenu] = useState(false);
 
     return (
         <div className='vendedor-container'>
             <div className="vendedor-component">
-                <button className='btn-menu' onClick={() => setModalMenu(!modalMenu)}><img src={MenuTresPontos} alt="Menu três pontos" /></button>
-                <h3>Nilza</h3>
-                <button className='btn-inativar' style={{backgroundColor: inativo ? '#4DAB54' : '#F35236'}} onClick={() => ativacaoVendedor()}>{inativo ? 'Ativo' : 'Inativo'}</button>
+                <button
+                    className='btn-menu'
+                    onClick={() => setModalMenu(!modalMenu)}
+                ><img src={MenuTresPontos} alt="Três pontos menu" /></button>
+
+                <h3>{nome}</h3>
+                <button
+                    className='btn-inativar'
+                    style={{ backgroundColor: inativo ? '#4DAB54' : '#F35236' }}
+                    onClick={() => onClickAtivar(false)}
+                >
+                    {inativo ? 'Ativo' : 'Inativo'}
+                </button>
             </div>
 
             {modalMenu && 
-                <ModalMenuVendedor/>
+                <ModalMenuVendedor 
+                    onClikDeletar={() => onClickAtivar(true)} 
+                    onClickEditar={() => onClickAtivarForms(true)}
+                />
             }
-            
         </div>
     )
 }

@@ -1,0 +1,81 @@
+.modal-forms-vendedor {}
+
+.form-forms-modal-vendedor {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-forms-modal-vendedor>h2 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.section-segmento {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.segmentos-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 50%;
+}
+
+.section-segmento>h3 {
+    font-weight: 400;
+}
+
+.section-regioes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.section-regioes>h3 {
+    font-weight: 400;
+}
+
+.botoes-forms-vendedor {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-forms-vendedor {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 2rem 3.5rem 2rem 3.5rem;
+    width: 50%;
+    height: 80%;
+}
