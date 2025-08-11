@@ -1,0 +1,55 @@
+/* container do radiobox + texto */
+.radiobox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* escondemos o input real */
+.radiobox-container input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* o círculo custom */
+.radiobox-container .radiomark {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 4px solid #4DAB54;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* o círculo interno, exibido só quando checked */
+.radiobox-container input:checked + .radiomark {
+  background-color: #4DAB54;
+}
+
+.radiobox-container input:checked + .radiomark::after {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: white;
+}
+
+/* foco (outline) no radiomark */
+.radiobox-container input:focus + .radiomark {
+  box-shadow: 0 0 0 3px rgba(77, 171, 84, 0.5);
+}
+
+/* opcional, estiliza o texto */
+.radiobox-container .radiobox-label {
+  font-size: 1rem;
+  color: #333;
+}

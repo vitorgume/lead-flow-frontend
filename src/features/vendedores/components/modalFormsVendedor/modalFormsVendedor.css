@@ -1,81 +1,135 @@
-.modal-forms-vendedor {}
-
-.form-forms-modal-vendedor {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.form-forms-modal-vendedor>h2 {
-    font-weight: 400;
-    font-size: 2rem;
-}
-
-.section-segmento {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.segmentos-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    height: 50%;
-}
-
-.section-segmento>h3 {
-    font-weight: 400;
-}
-
-.section-regioes {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-}
-
-.section-regioes>h3 {
-    font-weight: 400;
-}
-
-.botoes-forms-vendedor {
-    display: flex;
-    flex-direction: row;
-    width: 40%;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+  height: 95%;
 }
 
 .modal-forms-vendedor {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 2rem 3.5rem 2rem 3.5rem;
-    width: 50%;
-    height: 80%;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 24px 28px;
+  width: min(800px, calc(100vw - 40px)); 
+  max-height: calc(100vh - 40px);      
+  min-height: 300px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-forms-modal-vendedor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  gap: 16px;
+}
+
+.form-forms-modal-vendedor > h2 {
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+  flex-shrink: 0; 
+}
+
+.form-scrollarea {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.botoes-forms-vendedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex-shrink: 0; 
+  margin-top: auto; 
+}
+
+.section-segmento,
+.section-regioes,
+.section-prioridade {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  flex-shrink: 0; 
+}
+
+.section-segmento > h3,
+.section-regioes > h3,
+.section-prioridade > h3 {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.segmentos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: flex-start;
+}
+
+.radio-boxes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .modal-forms-vendedor {
+    padding: 16px 20px;
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+  }
+  
+  .form-forms-modal-vendedor > h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-scrollarea {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 8px;
+  }
+  
+  .modal-forms-vendedor {
+    padding: 12px 16px;
+    width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+  }
+  
+  .botoes-forms-vendedor {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  
+  .botoes-forms-vendedor button {
+    width: 100%;
+  }
 }

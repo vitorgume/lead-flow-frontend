@@ -1,0 +1,18 @@
+.item-navigate-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    color: white;
+    width: 100%;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.item-navigate-container:hover {
+    cursor: pointer;
+}
+
+.active-item-navigate {
+    background-color: #4DAB54;
+}

@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import './App.css'
-import MenuVendedor from './features/vendedores/pages/menuVendedor/menuVendedor';
+
+import MenuPrincipal from "./features/administrador/pages/menuPrincipal/menuPrincipal";
+import Login from "./features/administrador/pages/login/login";
 
 function App() {
   
@@ -9,7 +11,8 @@ function App() {
     <Router>
         <ToastContainer position="top-right" autoClose={3000} />
         <Routes>
-          <Route path="/" element={<MenuVendedor />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<MenuPrincipal />} />
         </Routes>
     </Router>
   )

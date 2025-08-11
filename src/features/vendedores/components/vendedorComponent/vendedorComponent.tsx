@@ -2,7 +2,6 @@ import './vendedorComponent.css';
 import MenuTresPontos from '../../../../assets/menu-tres-pontos.png';
 import ModalMenuVendedor from '../modalMenuVendedor/modalMenuVendedor';
 import { useState } from 'react';
-import ModalAtivacaoVendedor from '../modalAtivacaoVendedor/modalAtivacaoVendedor';
 
 interface VendedorComponentProps {
     nome: string;
@@ -26,10 +25,10 @@ export default function VendedorComponent({ nome, inativo, onClickAtivar, onClic
                 <h3>{nome}</h3>
                 <button
                     className='btn-inativar'
-                    style={{ backgroundColor: inativo ? '#4DAB54' : '#F35236' }}
+                    style={{ backgroundColor: inativo ? '#F35236' : '#4DAB54' }}
                     onClick={() => onClickAtivar(false)}
                 >
-                    {inativo ? 'Ativo' : 'Inativo'}
+                    {inativo ? 'Inativo' : 'Ativo'}
                 </button>
             </div>
 

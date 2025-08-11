@@ -1,0 +1,105 @@
+/* container do input numérico */
+.input-number-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* label do input */
+.input-number-container .input-label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* estilo do input numérico */
+.input-number-container .input-number {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #4DAB54;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* placeholder */
+.input-number-container .input-number::placeholder {
+  color: #888;
+  opacity: 0.8;
+}
+
+/* hover */
+.input-number-container .input-number:hover {
+  border-color: #3d8f43;
+  box-shadow: 0 0 0 1px rgba(77, 171, 84, 0.2);
+}
+
+/* focus */
+.input-number-container .input-number:focus {
+  border-color: #4DAB54;
+  box-shadow: 0 0 0 3px rgba(77, 171, 84, 0.3);
+}
+
+/* estilo para input inválido */
+.input-number-container .input-number:invalid {
+  border-color: #e74c3c;
+}
+
+.input-number-container .input-number:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+}
+
+/* personalização dos botões de incremento/decremento (Chrome/Safari) */
+.input-number-container .input-number::-webkit-outer-spin-button,
+.input-number-container .input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* personalização para Firefox */
+.input-number-container .input-number[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* versão com botões customizados (opcional) */
+.input-number-with-controls {
+  position: relative;
+}
+
+.input-number-controls {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.input-number-btn {
+  width: 1.5rem;
+  height: 1rem;
+  border: 1px solid #4DAB54;
+  background-color: #4DAB54;
+  color: white;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.input-number-btn:hover {
+  background-color: #3d8f43;
+}
+
+.input-number-btn:active {
+  transform: scale(0.95);
+}
