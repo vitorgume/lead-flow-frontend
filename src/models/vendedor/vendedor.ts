@@ -7,7 +7,7 @@ export default interface Vendedor {
     nome: string;
     telefone: string;
     inativo: boolean;
-    segmentos: Segmento[];
-    regioes: Regiao[];
+    segmentos: string[];
+    regioes: string[];
     prioridade: Prioridade;
 }

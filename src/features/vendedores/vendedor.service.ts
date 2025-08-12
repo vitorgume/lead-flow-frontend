@@ -14,7 +14,7 @@ export function listarTodosVendedores(): Promise<Response<Vendedor[]>> {
         })
 }
 
-export function alterarStatusVendedor(novosDados: Vendedor): Promise<Response<Vendedor>> {
+export function alterarVendedor(novosDados: Vendedor): Promise<Response<Vendedor>> {
     return api.put<Response<Vendedor>>(`/vendedores/${novosDados.id}`, novosDados)
         .then(response => response.data)
         .catch(err => {

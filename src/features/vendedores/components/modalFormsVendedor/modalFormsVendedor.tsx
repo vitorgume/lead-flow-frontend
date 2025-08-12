@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckBoxPadrao from '../checkBoxPadrao/checkBoxPadrao';
 import InputPadrao from '../inputPadrao/inputPadrao';
 import './modalFormsVendedor.css';
@@ -12,13 +12,15 @@ interface ModalAtivacaoVendedorProps {
     onCancel: () => void;
     onConfirm: (novoVendedor: Vendedor) => void;
     edicao: boolean;
+    vendedor?: Vendedor;
 }
 
 export default function ModalFormsVendedor({
     isOpen,
     onCancel,
     onConfirm,
-    edicao
+    edicao,
+    vendedor
 }: ModalAtivacaoVendedorProps) {
     const segmentosLista = [
         {
@@ -62,14 +64,13 @@ export default function ModalFormsVendedor({
     ];
 
     const [segmentosSel, setSegmentosSel] = useState<string[]>([]);
+
     const [regioesSel, setRegioesSel] = useState<string[]>([]);
+
     const [nome, setNome] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
     const [prioridade, setPrioridade] = useState<boolean>(false);
     const [prioridadeValor, setPrioridadeValor] = useState<string>('');
-
-
-
 
     const toggleSegmento = (seg: string) => {
         setSegmentosSel(prev =>
@@ -90,21 +91,54 @@ export default function ModalFormsVendedor({
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        const segmentos = segmentosSel.map(value => {
+            const item = segmentosLista.find(s => s.value === value);
+            return { label: item?.label ?? value, value };
+        });
+
+        const regioes = regioesSel.map(value => {
+            const item = regioesLista.find(r => r.value === value);
+            return { label: item?.label ?? value, value };
+        });
+
         const novoVendedor: Vendedor = {
-            id: null,
+            id: edicao && vendedor?.id ? vendedor.id : undefined,
             nome,
             telefone,
             segmentos: segmentosSel,
             regioes: regioesSel,
-            inativo: false,
-            prioridade: {
-                valor: parseInt(prioridadeValor),
-                prioritario: prioridade
-            } as Prioridade
-        }
+            inativo: edicao ? !!vendedor?.inativo : false,
+            prioridade: prioridade
+                ? { valor: Number(prioridadeValor), prioritario: true }
+                : null as any, 
+        };
 
         onConfirm(novoVendedor);
     };
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        if (edicao && vendedor) {
+            setNome(vendedor.nome ?? '');
+            setTelefone(vendedor.telefone ?? '');
+            setSegmentosSel((vendedor.segmentos ?? []).map((s: any) => s?.value ?? s));
+            setRegioesSel((vendedor.regioes ?? []).map((r: any) => r?.value ?? r));
+
+            const pri = vendedor.prioridade ?? null;
+            setPrioridade(!!pri?.prioritario);
+            setPrioridadeValor(
+                pri?.valor !== undefined && pri?.valor !== null ? String(pri.valor) : ''
+            );
+        } else {
+            setNome('');
+            setTelefone('');
+            setSegmentosSel([]);
+            setRegioesSel([]);
+            setPrioridade(false);
+            setPrioridadeValor('');
+        }
+    }, [isOpen, edicao, vendedor]);
 
     if (!isOpen) return null;
 
@@ -114,18 +148,20 @@ export default function ModalFormsVendedor({
                 <form className='form-forms-modal-vendedor' onSubmit={handleSubmit}>
                     <h2>Novo vendedor</h2>
 
-                    {/* ÁREA ROLÁVEL */}
                     <div className="form-scrollarea">
                         <InputPadrao
                             label='Nome vendedor'
                             placeholder='Digite o nome'
                             onChange={setNome}
+                            value={nome}
                         />
 
                         <InputPadrao
                             label='Telefone'
                             placeholder='55 (44) 99999-9999'
                             onChange={setTelefone}
+                            value={telefone}
+
                         />
 
                         <section className='section-segmento'>
@@ -186,7 +222,6 @@ export default function ModalFormsVendedor({
                         </section>
                     </div>
 
-                    {/* RODAPÉ FIXO */}
                     <div className='botoes-forms-vendedor'>
                         <button type='submit' className='btn-padrao btn-chamativo'>Salvar</button>
                         <button type='button' className='btn-padrao btn-nao-chamativo' onClick={onCancel}>Cancelar</button>

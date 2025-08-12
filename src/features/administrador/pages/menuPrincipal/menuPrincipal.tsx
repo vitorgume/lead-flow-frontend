@@ -27,7 +27,7 @@ export default function MenuPrincipal() {
                 estadoDashboard={menuDashboard}
             />
 
-            <div>
+            <div className='menus-dinamicos'>
                 {menuVendedor && 
                     <MenuVendedor/>
                 }

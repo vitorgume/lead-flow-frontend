@@ -3,7 +3,7 @@ import ModalAtivacaoVendedor from '../../components/modalAtivacaoVendedor/modalA
 import VendedorComponent from '../../components/vendedorComponent/vendedorComponent';
 import './menuVendedor.css';
 import ModalFormsVendedor from '../../components/modalFormsVendedor/modalFormsVendedor';
-import { alterarStatusVendedor, criarVendedor, deletarVendedor, listarTodosVendedores } from '../../vendedor.service';
+import { alterarVendedor, criarVendedor, deletarVendedor, listarTodosVendedores } from '../../vendedor.service';
 import type Vendedor from '../../../../models/vendedor/vendedor';
 import { notificarErro, notificarSucesso } from '../../../../utils/notificacao';
 import Loading from '../../../../utils/loading/loading';
@@ -63,7 +63,7 @@ export default function MenuVendedor() {
                     telefone: vendedores[selecionadoIdx].telefone
                 }
 
-                const response = await alterarStatusVendedor(novosDados);
+                const response = await alterarVendedor(novosDados);
 
                 if (response.dado) {
 
@@ -83,7 +83,21 @@ export default function MenuVendedor() {
     const confirmFormsVendedor = async (novoVendedor: Vendedor) => {
 
         if (edicao) {
-            
+            try {
+                const novoVendedorResponse = await alterarVendedor(novoVendedor);
+
+                if (novoVendedorResponse.dado) {
+                    setVendedores(prev => prev.map((v, i) =>
+                        i === selecionadoIdx ? { ...v, ...novoVendedorResponse.dado } : v
+                    ));
+                }
+            } catch (err) {
+                console.error('Erro ao criar vendedor: ', err);
+                notificarErro('Problema ao editar vendedor.');
+            } finally {
+                notificarSucesso('Vendedor editado com sucesso.')
+                setModalForms(false);
+            }
         } else {
             try {
                 const novoVendedorResponse = await criarVendedor(novoVendedor);
@@ -117,7 +131,7 @@ export default function MenuVendedor() {
 
 
     return (
-        <div className='menu-vendedor-page-main'>
+        <div className={`menu-vendedor-page-main ${loading ? 'is-loading' : ''}`}>
             {loading ? <Loading message='Carregando vendedores' />
                 :
                 <div className='menu-vendedor-page'>
@@ -131,12 +145,15 @@ export default function MenuVendedor() {
                                 inativo={v.inativo}
                                 onClickAtivar={(delecao) => abrirModal(idx, delecao)}
                                 onClickAtivarForms={(edicao) => abrirModalForms(idx, edicao)}
-
                             />
                         ))}
                     </div>
 
-                    <button className='btn-padrao btn-chamativo' onClick={() => setModalForms(true)}>Novo</button>
+                    <button className='btn-padrao btn-chamativo' onClick={() => {
+                        setSelecionadoIdx(null);
+                        setEdicao(false);        
+                        setModalForms(true);
+                    }}>Novo</button>
 
 
                     <ModalAtivacaoVendedor
@@ -152,6 +169,7 @@ export default function MenuVendedor() {
                         onCancel={() => setModalForms(false)}
                         onConfirm={(novoVendedor: Vendedor) => confirmFormsVendedor(novoVendedor)}
                         edicao={edicao}
+                        vendedor={selecionadoIdx !== null ? vendedores[selecionadoIdx] : {} as Vendedor}
                     />
                 </div>
             }

@@ -49,18 +49,22 @@ export default function Login() {
                             label="Telefone"
                             placeholder="Digite seu telefone"
                             onChange={setTelefone}
+                            value={telefone}
+
                         />
 
                         <InputPadrao
                             label="Senha"
                             placeholder="Digite sua senha"
                             onChange={setSenha}
+                            value={senha}
                         />
 
                         <InputPadrao
                             label="Chave secreta"
                             placeholder="Digite a chave secreta"
                             onChange={setChaveSecreta}
+                            value={chaveSecreta}
                         />
 
                         <button type="submit" className='btn-padrao btn-chamativo'>Entrar</button>

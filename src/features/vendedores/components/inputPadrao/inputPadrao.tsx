@@ -4,9 +4,10 @@ interface InputPadraoProps {
     label: string;
     placeholder: string;
     onChange: (value: string) => void;
+    value: string;
 }
 
-export default function InputPadrao({label, placeholder, onChange}: InputPadraoProps) {
+export default function InputPadrao({label, placeholder, onChange, value}: InputPadraoProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange(e.target.value);
@@ -20,6 +21,7 @@ export default function InputPadrao({label, placeholder, onChange}: InputPadraoP
                 type="text" 
                 placeholder={placeholder}
                 onChange={handleChange}    
+                value={value}
             />
         </div>
     )

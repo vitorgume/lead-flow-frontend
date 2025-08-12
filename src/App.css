@@ -4,6 +4,10 @@
     border-radius: 0.3rem;
     font-size: 1.3rem;
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-padrao:hover {

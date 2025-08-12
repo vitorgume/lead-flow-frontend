@@ -1,4 +1,10 @@
 .menu-principal-page {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.menus-dinamicos {
+    width: 100%;
+    height: 100%;   
 }

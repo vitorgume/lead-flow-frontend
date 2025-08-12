@@ -15,7 +15,7 @@
     height: 60px;
     border: 5px solid rgba(59, 130, 246, 0.2);
     border-radius: 50%;
-    border-top-color: #3B82F6;
+    border-top-color: #4DAB54;
     animation: spin 1s ease-in-out infinite;
     margin-bottom: 1.5rem;
 }
