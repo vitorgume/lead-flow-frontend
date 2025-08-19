@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import InputPadrao from '../../../vendedores/components/inputPadrao/inputPadrao';
 import './login.css';
+import '../../../../App.css';
 import { logar } from '../../administrador.service';
 import Loading from '../../../../utils/loading/loading';
 import { useNavigate } from 'react-router-dom';

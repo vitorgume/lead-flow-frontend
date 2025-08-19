@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ModalAtivacaoVendedor from '../../components/modalAtivacaoVendedor/modalAtivacaoVendedor';
 import VendedorComponent from '../../components/vendedorComponent/vendedorComponent';
 import './menuVendedor.css';
+import '../../../../App.css';
 import ModalFormsVendedor from '../../components/modalFormsVendedor/modalFormsVendedor';
 import { alterarVendedor, criarVendedor, deletarVendedor, listarTodosVendedores } from '../../vendedor.service';
 import type Vendedor from '../../../../models/vendedor/vendedor';
