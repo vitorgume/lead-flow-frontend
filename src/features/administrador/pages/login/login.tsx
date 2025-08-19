@@ -25,7 +25,7 @@ export default function Login() {
                 localStorage.setItem('token', responseLogin.dado.token);
                 localStorage.setItem('id-usuario', responseLogin.dado.idUsuario);
 
-                navigate('/');
+                navigate('/menu');
             } else {
                 notificarErro('Credenciais incorretas. Tente novamente.');
             }
