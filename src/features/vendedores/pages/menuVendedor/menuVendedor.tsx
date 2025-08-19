@@ -43,7 +43,7 @@ export default function MenuVendedor() {
                 if (vendedores[selecionadoIdx].id)
                     await deletarVendedor(vendedores[selecionadoIdx].id);
 
-                setVendedores(prev => prev.filter((v, i) => i !== selecionadoIdx));
+                setVendedores(prev => prev.filter((z, i) => i !== selecionadoIdx));
                 fecharModalAtivacao();
 
             } catch (error) {
