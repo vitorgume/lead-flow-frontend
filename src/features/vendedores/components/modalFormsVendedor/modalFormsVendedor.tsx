@@ -58,7 +58,7 @@ export default function ModalFormsVendedor({
         },
         {
             label: 'Outras',
-            value: 'OUTRAS'
+            value: 'OUTRA'
         }
     ];
 
