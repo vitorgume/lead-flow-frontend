@@ -11,7 +11,7 @@ function App() {
       <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<MenuPrincipal />} />
+        <Route path="/menu" element={<MenuPrincipal />} />
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
