@@ -1,9 +1,5 @@
 # Leadflow — Frontend
 
----
-
-# Leadflow — Frontend
-
 SPA em **React + TypeScript (Vite)** para o Leadflow: gerenciamento de vendedores (cadastro, inativação e segmentação) e autenticação (JWT)
 
 ---
