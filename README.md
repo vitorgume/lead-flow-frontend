@@ -1,69 +1,156 @@
-# React + TypeScript + Vite
+# Leadflow — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# Leadflow — Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SPA em **React + TypeScript (Vite)** para o Leadflow: gerenciamento de vendedores (cadastro, inativação e segmentação) e autenticação (JWT)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Sumário
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Visão Geral
+
+O frontend do **Leadflow** oferece a UI para:
+
+- Cadastro de vendedores
+- Deleção de vendedores
+- Inativação de vendedores
+- Configuração de segmentação dos vendedores
+
+Imagens:
+
+- Diagrama de features: `docs/arquitetura.jpg`
+
+---
+
+## Arquitetura & Organização
+
+**Estilo:** *Feature-based* (organização por domínio).
+Principais domínios: **Vendedor** e **Administrador**.
+
+> Dica visual rápida:
+> 
+
+**Diretrizes:**
+
+- Cada feature contém páginas, componentes próprios, hooks e serviços de API.
+
+---
+
+## Infra & Segurança
+
+- **Hospedagem:** Render
+- **Autenticação:** JWT (cookies HttpOnly)  + API Key.
+
+---
+
+## Tecnologias Principais
+
+- **React 18+, TypeScript, Vite**
+- **Axios** para chamadas HTTP
+- **react-router-dom** para roteamento
+
+> A lista completa está no package.json.
+> 
+
+---
+
+## Como Rodar Localmente
+
+### Pré-requisitos
+
+- Node 18+ (LTS 20 recomendado)
+- pnpm **ou** npm **ou** yarn
+- API rodando em `http://localhost:8080` (ou ajuste `VITE_API_BASE_URL`)
+
+### Variáveis de ambiente (`.env.local`)
+
+```bash
+VITE_API_BASE_URL=http://localhost:8080
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Instalação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+pnpm install
+# ou npm ci / yarn
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+
+### Dev server
+
+```bash
+pnpm dev
+# http://localhost:517
+```
+
+### Build & Preview
+
+```bash
+pnpm build
+pnpm preview
+
+```
+
+---
+
+## Estrutura de Pastas
+
+```
+src/
+  app/                # bootstrap da aplicação (providers, rotas)
+  features/
+    orcamentos/       # páginas, componentes e hooks do domínio
+    usuarios/
+  utils/              # axios instance, interceptors, clients por feature
+  models/         
+assets/
+docs/
+
+```
+
+> Ajuste os nomes conforme seu repo real.
+> 
+
+---
+
+## Scripts Úteis
+
+```bash
+pnpm dev         # desenvolvimento
+pnpm build       # build de produção (dist/)
+pnpm preview     # serve o build localmente
+pnpm lint        # ESLint
+pnpm test        # Vitest/Jest (se configurado)
+pnpm format      # Prettier (se configurado)
+
+```
+
+---
+
+## Padrões de Código & Qualidade
+
+- **ESLint + Prettier** (padronização e formatação)
+- **Acessibilidade**: use atributos semânticos/ARIA, navegação por teclado e contraste adequado.
+
+---
+
+## Ambientes & Deploy
+
+- **Local:** Vite Dev Server (`pnpm dev`)
+- **Variáveis de ambiente no deploy:** `VITE_API_BASE_URL`, chaves OAuth, etc.
+
+---
+
+## Licença / Uso
+
+Este repositório é **proprietário** e destinado a uso interno do Cotalizer.
+
+Não é liberado para uso, cópia, modificação ou distribuição por terceiros sem autorização expressa.
+
+*Copyright (c) 2025 Cotalizer. Todos os direitos reservados*
