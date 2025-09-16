@@ -6,11 +6,6 @@
 
 SPA em **React + TypeScript (Vite)** para o Leadflow: gerenciamento de vendedores (cadastro, inativação e segmentação) e autenticação (JWT)
 
-
----
-
-## Sumário
-
 ---
 
 ## Visão Geral
@@ -35,6 +30,8 @@ Principais domínios: **Vendedor** e **Administrador**.
 
 > Dica visual rápida:
 > 
+
+![arquitetura](docs/arquitetura.jpg)
 
 **Diretrizes:**
 
