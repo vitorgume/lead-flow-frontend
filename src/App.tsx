@@ -4,7 +4,7 @@ import './App.css'
 
 import MenuPrincipal from "./features/administrador/pages/menuPrincipal/menuPrincipal";
 import Login from "./features/administrador/pages/login/login";
-import Chat from "./features/vendedores/pages/chat/chat";
+import ChatMensagens from "./features/chat/pages/chat/chatMensagens";
 
 function App() {
   
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<MenuPrincipal />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat/:idChat" element={<ChatMensagens />} />
         </Routes>
     </Router>
   )
