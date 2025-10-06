@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://iw3ggxiaik.us-east-1.awsapprunner.com/',
 });
 
 api.interceptors.request.use((config) => {
@@ -12,9 +12,8 @@ api.interceptors.request.use((config) => {
   const url = config.url || '';
   const isRotaPublica = rotasPublicas.some((rota) => url.includes(rota));
 
-  // Garante headers
   const h = config.headers || {};
-  // Se for Axios v1 (AxiosHeaders), use set/delete
+ 
   const setHeader = (name: any, value: any) => {
 
     if (h && typeof h.set === 'function') {
@@ -26,14 +25,11 @@ api.interceptors.request.use((config) => {
     }
   };
 
-  // Sempre manda a API key
   if (apiKey) setHeader('X-API-KEY', apiKey);
 
-  // Só manda o Bearer nas rotas privadas
   if (!isRotaPublica && token) {
     setHeader('Authorization', `Bearer ${token}`);
   } else {
-    // Garante que não vai Bearer em /login
     setHeader('Authorization', null);
   }
 

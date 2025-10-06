@@ -3,7 +3,6 @@ import CheckBoxPadrao from '../checkBoxPadrao/checkBoxPadrao';
 import InputPadrao from '../inputPadrao/inputPadrao';
 import './modalFormsVendedor.css';
 import type Vendedor from '../../../../models/vendedor/vendedor';
-import type Prioridade from '../../../../models/vendedor/prioridade';
 import RadioBoxPadrao from '../radioBoxPadrao/radioBoxPadrao';
 import InputNumberPadrao from '../inputNumberPadrao/inputNumberPadrao';
 
@@ -59,7 +58,7 @@ export default function ModalFormsVendedor({
         },
         {
             label: 'Outras',
-            value: 'OUTRAS'
+            value: 'OUTRA'
         }
     ];
 
@@ -90,16 +89,6 @@ export default function ModalFormsVendedor({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
-        const segmentos = segmentosSel.map(value => {
-            const item = segmentosLista.find(s => s.value === value);
-            return { label: item?.label ?? value, value };
-        });
-
-        const regioes = regioesSel.map(value => {
-            const item = regioesLista.find(r => r.value === value);
-            return { label: item?.label ?? value, value };
-        });
 
         const novoVendedor: Vendedor = {
             id: edicao && vendedor?.id ? vendedor.id : undefined,

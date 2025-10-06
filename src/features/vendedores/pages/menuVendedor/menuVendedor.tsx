@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ModalAtivacaoVendedor from '../../components/modalAtivacaoVendedor/modalAtivacaoVendedor';
 import VendedorComponent from '../../components/vendedorComponent/vendedorComponent';
 import './menuVendedor.css';
+import '../../../../App.css';
 import ModalFormsVendedor from '../../components/modalFormsVendedor/modalFormsVendedor';
 import { alterarVendedor, criarVendedor, deletarVendedor, listarTodosVendedores } from '../../vendedor.service';
 import type Vendedor from '../../../../models/vendedor/vendedor';
@@ -43,7 +44,7 @@ export default function MenuVendedor() {
                 if (vendedores[selecionadoIdx].id)
                     await deletarVendedor(vendedores[selecionadoIdx].id);
 
-                setVendedores(prev => prev.filter((v, i) => i !== selecionadoIdx));
+                setVendedores(prev => prev.filter((_, i) => i !== selecionadoIdx));
                 fecharModalAtivacao();
 
             } catch (error) {
