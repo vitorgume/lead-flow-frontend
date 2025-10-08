@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://iw3ggxiaik.us-east-1.awsapprunner.com/',
+  baseURL: 'http://localhost:8080/',
 });
 
 api.interceptors.request.use((config) => {

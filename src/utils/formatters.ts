@@ -76,7 +76,7 @@ export function formatSegmento(segmento: string): string {
             return 'Medicina e Saúde';
         case 'BOUTIQUE_LOJAS':
             return 'Boutique e Lojas';
-        case 'OUTRA':
+        case 'ENGENHARIA_ARQUITETURA':
             return 'Engenharia e Arquitetura';
         case 'ALIMENTOS':
             return 'Alimentos';
