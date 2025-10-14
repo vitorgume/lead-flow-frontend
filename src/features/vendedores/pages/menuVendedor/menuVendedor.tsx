@@ -61,7 +61,8 @@ export default function MenuVendedor() {
                     segmentos: vendedores[selecionadoIdx].segmentos,
                     regioes: vendedores[selecionadoIdx].regioes,
                     prioridade: vendedores[selecionadoIdx].prioridade,
-                    telefone: vendedores[selecionadoIdx].telefone
+                    telefone: vendedores[selecionadoIdx].telefone,
+                    id_vendedor_crm: vendedores[selecionadoIdx].id_vendedor_crm
                 }
 
                 const response = await alterarVendedor(novosDados);

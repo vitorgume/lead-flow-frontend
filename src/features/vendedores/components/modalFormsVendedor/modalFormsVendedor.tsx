@@ -70,6 +70,7 @@ export default function ModalFormsVendedor({
     const [telefone, setTelefone] = useState<string>('');
     const [prioridade, setPrioridade] = useState<boolean>(false);
     const [prioridadeValor, setPrioridadeValor] = useState<string>('');
+    const [idVendedorCrm, setIdVendedorCrm] = useState<string>('');
 
     const toggleSegmento = (seg: string) => {
         setSegmentosSel(prev =>
@@ -100,6 +101,7 @@ export default function ModalFormsVendedor({
             prioridade: prioridade
                 ? { valor: Number(prioridadeValor), prioritario: true }
                 : null as any, 
+            id_vendedor_crm: idVendedorCrm
         };
 
         onConfirm(novoVendedor);
@@ -151,6 +153,13 @@ export default function ModalFormsVendedor({
                             onChange={setTelefone}
                             value={telefone}
 
+                        />
+
+                        <InputPadrao
+                            label='ID Vendedor CRM'
+                            placeholder='Digite o ID do vendedor no CRM'
+                            onChange={setIdVendedorCrm}
+                            value={idVendedorCrm}
                         />
 
                         <section className='section-segmento'>

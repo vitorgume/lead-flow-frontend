@@ -8,4 +8,5 @@ export default interface Vendedor {
     segmentos: string[];
     regioes: string[];
     prioridade: Prioridade;
+    id_vendedor_crm: string;
 }
