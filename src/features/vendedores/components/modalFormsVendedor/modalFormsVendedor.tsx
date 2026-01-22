@@ -121,6 +121,7 @@ export default function ModalFormsVendedor({
             setPrioridadeValor(
                 pri?.valor !== undefined && pri?.valor !== null ? String(pri.valor) : ''
             );
+            setIdVendedorCrm(vendedor.id_vendedor_crm ?? '');
         } else {
             setNome('');
             setTelefone('');
@@ -128,6 +129,7 @@ export default function ModalFormsVendedor({
             setRegioesSel([]);
             setPrioridade(false);
             setPrioridadeValor('');
+            setIdVendedorCrm('');
         }
     }, [isOpen, edicao, vendedor]);
 
